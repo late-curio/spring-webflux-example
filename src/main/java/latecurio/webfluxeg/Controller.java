@@ -74,8 +74,8 @@ public class Controller {
 
     @GetMapping("/doeet/{ts}")
     public Flux<String> doeet(@PathVariable String ts) {
-        return Flux.just("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
-                .map(it -> webClient.get().uri("http://example.com?i=%s&ts=%i", it, System.currentTimeMillis()))
+        return Flux.range(1, 100)
+                .map(it -> webClient.get().uri("http://example.com?i=%i&ts=%i", it, System.currentTimeMillis()))
                 .map(response -> response.retrieve().bodyToMono(String.class))
                 .flatMap(it -> it);
     }
