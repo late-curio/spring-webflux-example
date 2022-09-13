@@ -44,3 +44,13 @@ bootRun {
 	]
 }
 
+test {
+	java {
+		jvmArgs = [
+				"-javaagent:${project.projectDir}/newrelic/newrelic.jar",
+				"-Dnewrelic.config.file=${project.projectDir}/newrelic/newrelic.yml",
+				"-Dnewrelic.environment=staging"
+		]
+	}
+}
+

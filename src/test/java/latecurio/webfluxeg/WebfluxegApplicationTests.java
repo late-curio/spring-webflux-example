@@ -10,9 +10,6 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @Testcontainers
 class WebfluxegApplicationTests {
 
-//	@ClassRule
-//	public static MySQLContainer mySQLContainer = new MySQLContainer("mysql:8");
-
 	@Container
 	public GenericContainer mySQLContainer = new GenericContainer("mysql").withExposedPorts(3306);
 
