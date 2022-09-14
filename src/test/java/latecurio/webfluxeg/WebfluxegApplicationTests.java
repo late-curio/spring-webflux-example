@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.web.client.RestTemplate;
-import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.containers.MySQLContainer;
+//import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
@@ -17,11 +17,17 @@ import java.util.Optional;
 @Testcontainers
 class WebfluxegApplicationTests {
 
+//	@Container
+//	public PostgreSQLContainer postgresDb = new PostgreSQLContainer("postgres:13.1")
+//			.withDatabaseName("testdb")
+//			.withUsername("postgres")
+//			.withPassword("postgres");
+
 	@Container
-	public PostgreSQLContainer postgresDb = new PostgreSQLContainer("postgres:13.1")
+	public MySQLContainer postgresDb = new MySQLContainer("mysql:8")
 			.withDatabaseName("testdb")
-			.withUsername("postgres")
-			.withPassword("postgres");
+			.withUsername("admin")
+			.withPassword("admin");
 
 	@Autowired
 	private ItemService itemService;
