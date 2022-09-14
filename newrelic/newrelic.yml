@@ -310,4 +310,4 @@ production:
 staging:
   <<: *default_settings
   host: staging-collector.newrelic.com
-  app_name: webfluxeg2
+  app_name: webflux-mysql
